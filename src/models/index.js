@@ -18,5 +18,4 @@ const setupDatabase = () => {
         Reader
     };
 };
-
 module.exports = setupDatabase();
