@@ -57,7 +57,7 @@ describe('/readers', () => {
           const expected = readers.find((a) => a.id === reader.id);
 
           expect(reader.name).to.equal(expected.name);
-          expect(reader.email).to.equal(expect.email);
+          expect(reader.email).to.equal(expected.email);
         });
       });
     });
