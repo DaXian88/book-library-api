@@ -6,7 +6,7 @@ const app = express();
 
 app.use(express.json());
 
-app.post('/reader', readerController.create)
+app.post('/readers', readerController.create)
 
 
 module.exports = app;
