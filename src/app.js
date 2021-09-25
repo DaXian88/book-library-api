@@ -12,4 +12,6 @@ app.get('/reader', readerController.readAll);
 
 app.get('/reader/:id', readerController.readById);
 
+app.patch('/reader/:id', readerController.update)
+
 module.exports = app;
