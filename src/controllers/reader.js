@@ -55,7 +55,7 @@ exports.delete = async (req, res) => {
     
     if(!readerDetails){
         res.status(404).json({  error: 'The reader could not be found.'  })
-    }
+    };
 
     await Reader.destroy({ where: {id: req.params.id}});
 
