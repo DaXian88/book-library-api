@@ -12,6 +12,8 @@ app.get('/reader', readerController.readAll);
 
 app.get('/reader/:id', readerController.readById);
 
-app.patch('/reader/:id', readerController.update)
+app.patch('/reader/:id', readerController.update);
+
+app.delete('/reader/:id', readerController.delete)
 
 module.exports = app;

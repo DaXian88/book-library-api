@@ -28,7 +28,7 @@ exports.readById = async (req, res) => {
     const reader = await Reader.findByPk(readerId);
    
         if(!reader){
-        res.status(404).json({error: 'The reader could not be found'})
+        res.status(404).json({  error: 'The reader could not be found'  })
     }
         res.status(200).json(reader);
     
@@ -38,10 +38,26 @@ exports.update = async (req, res) => {
     let readerDetails = await Reader.findByPk(req.params.id)
     const updateData = req.body;
 
-    const [ updatedRows ] = await Reader.update(updateData, { where: {id: req.params.id} });
+    await Reader.update(updateData, { where: {id: req.params.id} });
 
     readerDetails = await Reader.findByPk(req.params.id)
+
+    if(!readerDetails){
+        res.status(404).json({  error: 'The reader could not be found.'  })
+    }
 
     res.status(200).json(readerDetails);
     
 };
+
+exports.delete = async (req, res) => {
+    let readerDetails = await Reader.findByPk(req.params.id)
+    
+    if(!readerDetails){
+        res.status(404).json({  error: 'The reader could not be found.'  })
+    }
+
+    await Reader.destroy({ where: {id: req.params.id}});
+
+    res.status(204).json(readerDetails);
+}
